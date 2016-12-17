@@ -1,0 +1,47 @@
+﻿<style>
+    body {
+        background-image: url(images/backgroundfilmes.jpg);
+        color:#FFFFFF;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+
+    }
+    a {
+        color:#13E3E9 ;
+    }
+    
+</style>
+<section>
+    <div class="page-header container titulopagina">
+    <div>
+        <img src="http://wallpaper.ultradownloads.com.br/278955_Papel-de-Parede-Filme-Capitao-America_1920x1080.jpg" alt="asda" width="100%" height="100px"/>
+    </div>
+        <h2>Filmes - <small data-bind="visible: (moviesCount() > 0)"><i class="fa fa-film"></i> [<span data-bind="text: moviesCount"></span>]</small></h2>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-2">
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">Nome:</span>
+                    <input type="text" id="movieTitle" class="form-control" data-bind="value : searchText" aria-describedby="basic-addon1" placeholder="Introduza o nome do filme a pesquisar" />
+                </div>
+            </div>
+            <div class="col-md-2 col-xs-12 text-center">
+                <button class="btn btn-default" id="searchBtn" data-bind="click: searchMovies, disable : searchTextGood"><i class="fa fa-search"></i></button>
+                <button class="btn btn-default" id="clearSearchBtn" data-bind="click : clearMovies"><i class="fa fa-trash-o"></i></button>
+            </div>
+        </div>
+        <hr />
+        <div class="row" data-bind="foreach: movies">
+            <div class="col-md-3">
+                <div><i class="fa fa-video-camera"></i> <a data-bind="attr: { href : '#moviesDetails/'+movieID}, text: movie_title"></a></div>
+            </div>
+        </div>
+        <div id="alerta" class="hidden alert alert-danger col-md-12">Resultados não encontrados</div>
+    </div>
+    <div class="container">
+        <hr/>
+        <div><h6><i class="fa fa-copyright" aria-hidden="true"></i> 2016 - Francisco e Lucas</h6></div>
+    </div>
+</section>

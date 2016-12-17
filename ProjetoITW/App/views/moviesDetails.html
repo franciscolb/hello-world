@@ -1,0 +1,125 @@
+<style>
+    body {
+        background-image: url(images/backgroundfilmes.jpg);
+        color:#FFFFFF;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+    a {
+        color:#13E3E9 ;
+    }
+    img{
+    	width: 100%;
+    	height: 100%;
+    }
+    .tabela {
+    	width: 100%;
+    	min-width: 10%;
+    }
+/*    html, body{
+    height:100%;
+    width:100%;
+    padding:0;
+    margin:0;
+}*/
+</style>
+
+<section>
+<div class="page-header container titulopagina" data-bind="foreach: moviesInfo">
+        <h2><span data-bind="text: movie_title"></span></h2>
+    </div>
+	<div class="container">
+	<button type="button" class="btn btn-default" onClick="history.go(-1)"><i class="fa fa-arrow-left" aria-hidden="true"></i></button><br/>
+		<div class="row">
+			<div data-bind="foreach: moviesInfo" class="col-lg-6">
+				<table class="table table-bordered">
+					<tr>
+						<td><strong>Nome do Filme: </strong></td>
+						<td><span data-bind="text: movie_title"></span></td>
+					</tr>
+					<tr>
+						<td><strong>Realizador do Filme: </strong></td>
+						<td><a data-bind="text: directorName, attr: {href: '#directorsDetails/'+directorID}"></a></td>
+					</tr>
+					<tr>
+						<td><strong>Ano de estreia: </strong></td>
+						<td><span data-bind="text: title_year"></span></td>
+					</tr>
+					<tr>
+						<td><strong>País de realização: </strong></td>
+						<td><a data-bind="text: countryName, attr:{href: '#countriesDetails/'+countryID}"></a></td>
+					</tr>
+					<tr>
+						<td><strong>Duração(min): </strong></td>
+						<td><span data-bind="text: duration"></span></td>
+					</tr>
+					<tr>
+						<td><strong>Proporção: </strong></td>
+						<td><span data-bind="text: aspect_ratio"></span></td>
+					</tr>
+					<tr>
+						<td><strong>Linguagem: </strong></td>
+						<td><a data-bind="text: languageName, attr: {href: '#languagesDetails/'+languageID}"></a></td>
+					</tr>
+					<tr>
+					<td><strong>Atores principais: </strong></td>
+						<td>
+							<div data-bind="foreach: movie_actors">
+								<a data-bind="text: actorName, attr: {href: '#actorsDetails/'+actorID}"></a><br/>
+							</div>
+					</td>
+					<tr>
+						<td><strong>Géneros: </strong></td>
+							<td>
+								<div data-bind="foreach: genres">
+									<a data-bind="text: genreName, attr: {href: '#genresDetails/'+genreID}"></a><br/>
+								</div>
+							</td>
+					</tr>
+					<tr>
+						<td><strong>Keywords: </strong></td>
+						<td>  
+							<span data-bind="text: plot_keywords"></span> <br/>  
+						</td>
+					</tr>
+					<tr>
+						<td><strong>Cor: </strong></td>
+						<td><span data-bind="text: color"></span></td>
+					</tr>
+					<tr>
+						<td><strong>Orçamento($): </strong></td>
+						<td><span data-bind="text: budget"></span></td>
+					</tr>
+					<tr>
+						<td><strong>Gross($): </strong></td>
+						<td><span data-bind="text: gross"></span></td>
+					</tr>
+					<tr>
+						<td><strong>IMDB Score: </strong></td>
+						<td><span data-bind="text: imdb_score"></span>/10</td>
+					</tr>
+					<tr>
+						<td><strong>IMDB: </strong></td>
+						<td><a data-bind="text: movie_imdb_link, attr: {href: movie_imdb_link}"></a</td>
+					</tr>
+					<tr>
+						<td><strong>Avaliação do conteúdo: </strong></td>
+						<td><span data-bind="text: content_rating"></span></td>
+					</tr>  
+					<tr>
+						<td><strong>Facebook: </strong></td>
+						<td><span data-bind="text: cast_total_facebook_likes"></span> <i style="color:#279ED4;" class="fa fa-thumbs-o-up" aria-hidden="true"></i></td>
+					</tr>
+				</table>
+			</div>
+			<div data-bind="foreach: moviesInfo" class="col-lg-6">
+				<img height="700px" data-bind="attr: {src: poster}">
+			</div>
+		</div>
+	</div>
+	<div class="container">
+        <hr/>
+        <div><h6><i class="fa fa-copyright" aria-hidden="true"></i> 2016 - Francisco e Lucas</h6></div>
+    </div>
+</section>

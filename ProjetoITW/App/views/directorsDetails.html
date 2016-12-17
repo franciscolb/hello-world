@@ -1,0 +1,51 @@
+<style>
+    body {
+        background-image: url(images/backgroundfilmes.jpg);
+        color:#FFFFFF;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+    a {
+        color:#13E3E9 ;
+    }
+    img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+</style>
+<section>
+	<div class="page-header container titulopagina" data-bind="foreach: directorsInfo">
+        <h2><span data-bind="text: directorName"></span></h2>
+    </div>
+	<div class="container">
+	<button type="button" class="btn btn-default" onClick="history.go(-1)"><i class="fa fa-arrow-left" aria-hidden="true"></i></button> 
+		<div class="row">
+			<div data-bind="foreach: directorsInfo" class="col-lg-6">
+				<table class="table table-bordered">
+					<tr>
+						<td><strong>Nome do Realizador: </strong></td>
+						<td><span data-bind="text: directorName">[<span data-bind="text: directorID"></span>]</span></td>
+					</tr>
+					<tr>
+						<td><strong>Likes no FB: </strong></td>
+						<td><span data-bind="text: directorFacebookLikes"></span></td>
+					</tr>
+					<tr>
+						<td><strong>Filmes: </strong></td>
+						<td><div data-bind="foreach: movies">
+							<a data-bind="text: movie_title, attr: { href : '#moviesDetails/'+movieID}"></a><br/>
+						</div></td>
+					</tr>
+				</table>
+			</div>
+			<div class="col-lg-6 col-xs-12" data-bind="foreach: directorsInfo">
+				<img data-bind="attr: {src: photo}">
+			</div>
+		
+            	  
+	        	
+		</div>
+	</div>
+</section>

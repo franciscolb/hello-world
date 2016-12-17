@@ -1,0 +1,45 @@
+﻿<style>
+    body {
+        background-image: url(images/backgroundfilmes.jpg);
+        color:#FFFFFF;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+
+    }
+    a {
+        color:#13E3E9 ;
+    }
+    
+</style>
+<section>
+    <div class="page-header container titulopagina">
+        <h2>Realizadores -  <small data-bind="visible: (directorsCount() > 0)"><i class="fa fa-users"></i> [<span data-bind="text: directorsCount"></span>]</small></h2>
+    </div>
+    <div class="container" id="parteantiga">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-2">
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">Nome:</span>
+                    <input type="text" id="directorTitle" class="form-control" data-bind="value : searchText" aria-describedby="basic-addon1" placeholder="Introduza o nome do realizador" />
+                </div>
+            </div>
+            <div class="col-md-2 col-xs-12 text-center">
+                <button class="btn btn-default" id="searchBtn" data-bind="click: searchDirectors, disable : searchTextGood"><i class="fa fa-search"></i></button>
+                <button class="btn btn-default" id="clearSearchBtn" data-bind="click : clearDirectors"><i class="fa fa-trash-o"></i></button>
+            </div>
+        </div>
+        <hr />
+        <div class="row" data-bind="foreach: directors">
+            <div class="col-md-3">
+                <div><i class="fa fa-user"></i> <a data-bind="attr: { href : '#directorsDetails/'+directorID}, text: directorName"></a></div>
+            </div>
+        </div>
+            <div id="alerta" class="hidden alert alert-danger col-md-12">Resultados não encontrados</div>
+
+    </div>
+    <div class="container">
+        <hr/>
+        <div><h6><i class="fa fa-copyright" aria-hidden="true"></i> 2016 - Francisco e Lucas</h6></div>
+    </div>
+</section>

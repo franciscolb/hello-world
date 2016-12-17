@@ -1,0 +1,42 @@
+<style>
+    body {
+        background-image: url(images/backgroundfilmes.jpg);
+        color:#FFFFFF;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+
+    }
+    a {
+        color:#13E3E9 ;
+    }
+    
+</style>
+<section>
+<div class="page-header container titulopagina" data-bind="foreach: countriesData">
+        <h2><span data-bind="text: countryName"></span></h2>
+    </div>
+	<div class="container">
+	<button type="button" class="btn btn-default" onClick="history.go(-1)"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+		<div class="row">
+			<div data-bind="foreach: countriesData" class="col-lg-6">
+				<table class="table table-bordered">
+					<tr>
+						<td><strong>País: </strong></td>
+						<td><span data-bind="text: countryName"></span></td>
+					</tr>
+					<tr>
+						<td><strong>Filmes: </strong></td>
+						<td><div data-bind="foreach: movies">
+							<a data-bind="text: movie_title, attr: { href : '#moviesDetails/'+movieID}"></a>
+						</div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+        <hr/>
+        <div><h6><i class="fa fa-copyright" aria-hidden="true"></i> 2016 - Francisco e Lucas</h6></div>
+    </div>
+</section>

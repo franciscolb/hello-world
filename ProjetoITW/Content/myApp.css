@@ -1,0 +1,18 @@
+body {
+    padding-top:
+    padding-bottom: 50px;
+    font-family: 'Bree Serif', serif;
+    font-size: 16px;
+
+
+
+}
+.titulopagina {
+	text-align: center;
+}
+.movies {
+	background-image: url(images/backgroundfilmes.jpg);
+}
+.navbar {
+	background-color: #000000;
+}
