@@ -58,6 +58,25 @@
             }
             });
         }
+        pesquisaautomatica = function() {
+            console.log('pesquisa');
+            if (self.searchText().length >= 3){
+                ajaxHelper(searchDirectorsUri + self.searchText(), 'GET').done(function (data){
+                    self.directors(data);
+                    if (data.length==0) {
+                        $('#alerta').removeClass('hidden');
+                    }
+                else if (data!=0){
+                !$("#alerta").hasClass('hidden');
+                $("#alerta").addClass('hidden');
+                }
+                });
+            } else {
+                getAllDirectors();
+                !$("#alerta").hasClass('hidden');
+                $("#alerta").addClass('hidden');
+            }
+        };
         //---- Chamada inicial
         getAllDirectors();
     };

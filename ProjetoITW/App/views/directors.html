@@ -10,10 +10,14 @@
     a {
         color:#13E3E9 ;
     }
+    .foo {
+        background-image: url(images/directors.jpg);
+    }
     
 </style>
 <section>
     <div class="page-header container titulopagina">
+    <div class="imagem foo"></div>
         <h2>Realizadores -  <small data-bind="visible: (directorsCount() > 0)"><i class="fa fa-users"></i> [<span data-bind="text: directorsCount"></span>]</small></h2>
     </div>
     <div class="container" id="parteantiga">
@@ -21,7 +25,7 @@
             <div class="col-md-6 col-md-offset-2">
                 <div class="input-group">
                     <span class="input-group-addon" id="basic-addon1">Nome:</span>
-                    <input type="text" id="directorTitle" class="form-control" data-bind="value : searchText" aria-describedby="basic-addon1" placeholder="Introduza o nome do realizador" />
+                    <input type="text" id="directorTitle" class="form-control" data-bind="value : searchText, valueUpdate: 'afterkeydown', event: {keyup: pesquisaautomatica}" aria-describedby="basic-addon1" placeholder="Introduza o nome do realizador" />
                 </div>
             </div>
             <div class="col-md-2 col-xs-12 text-center">

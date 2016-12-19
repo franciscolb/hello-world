@@ -1,7 +1,7 @@
 <div>
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" >
         <a class="navbar-brand" href="#">
-                    <i class="fa fa-television"></i>
+                    <span><img src="images/tv.png" style="width:20px; height:24px; " /></span>
                 </a>
         <div class="container">
             <div class="navbar-header">
@@ -18,7 +18,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav" data-bind="foreach: router.navigationModel">
                     <li data-bind="css: { active: isActive}">
-                        <a data-bind="attr: {href: hash}, html: menu"></a>
+                        <a data-bind="attr: {href: hash}, html: menu" data-toggle="collapse" data-target=".navbar-collapse"></a>
                     </li>
                 </ul>
 

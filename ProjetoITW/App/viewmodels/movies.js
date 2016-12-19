@@ -30,6 +30,10 @@
                 }
             })
         }
+        
+            $("#movieTitle").change(function(){
+                alert("The text has been changed.");
+            });
         //--- Funções visíveis do exterior
         getAllMovies = function () {
             console.log('CALL: getAllMovies...')
@@ -49,18 +53,36 @@
             console.log('CALL: searchMovies...')
             ajaxHelper(searchMoviesUri + self.searchText(), 'GET').done(function (data) {
                 self.movies(data);
-            if (data == 0) {
-                $("#alerta").removeClass('hidden');
-            }
-            else if (data!=0){
+                if (data == 0) {
+                    $("#alerta").removeClass('hidden');
+                }
+                else if (data!=0){
+                    !$("#alerta").hasClass('hidden');
+                    $("#alerta").addClass('hidden');
+                }
+            });
+        }
+        pesquisaautomatica = function() {
+            console.log('pesquisa');
+            if (self.searchText().length >= 3){
+                ajaxHelper(searchMoviesUri + self.searchText(), 'GET').done(function (data){
+                    self.movies(data);
+                    if (data.length==0) {
+                        $('#alerta').removeClass('hidden');
+                    }
+                else if (data!=0){
+                !$("#alerta").hasClass('hidden');
+                $("#alerta").addClass('hidden');
+                }
+                });
+            } else {
+                getAllMovies();
                 !$("#alerta").hasClass('hidden');
                 $("#alerta").addClass('hidden');
             }
-            });
-        }
+        };
         //---- Chamada inicial
         getAllMovies();
     };
     return ViewModel;
-    
 });

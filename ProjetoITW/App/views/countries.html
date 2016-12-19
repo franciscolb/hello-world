@@ -10,18 +10,21 @@
     a {
         color:#13E3E9 ;
     }
-    
+    .foo {
+        background-image: url(images/paises.jpg);
+    }
 </style>
 <section>
     <div class="page-header container titulopagina">
-        <h2>Países - <small data-bind="visible: (countriesCount() > 0)"><i class="fa fa-film"></i> [<span data-bind="text: countriesCount"></span>]</small></h2>
+    <div class="imagem foo"></div>
+        <h2>Países <small data-bind="visible: (countriesCount() > 0)">[<span data-bind="text: countriesCount"></span>]</small></h2>
     </div>
     <div class="container" id="principal">
         <div class="row">
             <div class="col-md-6 col-md-offset-2">
                 <div class="input-group">
                     <span class="input-group-addon" id="basic-addon1">Nome:</span>
-                    <input type="text" id="countryTitle" class="form-control" data-bind="value : searchText" aria-describedby="basic-addon1" placeholder="Introduza o nome do país" />
+                    <input type="text" id="countryTitle" class="form-control" data-bind="value : searchText, valueUpdate: 'afterkeydown', event: {keyup: pesquisaautomatica}" aria-describedby="basic-addon1" placeholder="Introduza o nome do país" />
                 </div>
             </div>
             <div class="col-md-2 col-xs-12 text-center">
@@ -32,7 +35,7 @@
         <hr />
         <div class="row" data-bind="foreach: countries">
             <div class="col-md-3">
-                <div><i class="fa fa-film"></i> <a data-bind="attr: { href : '#countriesDetails/'+countryID}, text: countryName"></a></div>
+                <div><i class="fa fa-map-o"></i> <a data-bind="attr: { href : '#countriesDetails/'+countryID}, text: countryName"></a></div>
             </div>
         </div>
         <div id="alerta" class="hidden alert alert-danger col-md-12">Resultados não encontrados</div>

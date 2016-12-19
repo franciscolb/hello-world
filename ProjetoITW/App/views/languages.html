@@ -10,18 +10,21 @@
     a {
         color:#13E3E9 ;
     }
-    
+    .foo {
+        background-image: url(images/languages.jpg);
+    }
 </style>
 <section>
     <div class="page-header container titulopagina">
-        <h2 style="text-align:center;"> Linguagens - <small data-bind="visible: (languagesCount() > 0)"><i class="fa fa-sort-alpha-asc"></i> [<span data-bind="text: languagesCount"></span>]</small></h2>
+      <div class="imagem foo"></div>
+        <h2 style="text-align:center;"> Linguagens <small data-bind="visible: (languagesCount() > 0)"> [<span data-bind="text: languagesCount"></span>]</small></h2>
     </div>
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-2">
                 <div class="input-group">
                     <span class="input-group-addon" id="basic-addon1">Linguagem:</span>
-                    <input type="text" id="languageTitle" class="form-control" data-bind="value : searchText" aria-describedby="basic-addon1" placeholder="Introduza a linguagem" />
+                    <input type="text" id="languageTitle" class="form-control" data-bind="value : searchText, valueUpdate: 'afterkeydown', event: {keyup: pesquisaautomatica}" aria-describedby="basic-addon1" placeholder="Introduza a linguagem" />
                 </div>
             </div>
             <div class="col-md-2 col-xs-12 text-center">
@@ -32,7 +35,7 @@
         <hr />
         <div class="row" data-bind="foreach: languages">
             <div class="col-md-3">
-                <div><i class="fa fa-film"></i> <a data-bind="attr: { href : '#languagesDetails/'+languageID}, text: languageName"></a></div>
+                <div><i class="fa fa-flag-o"></i> <a data-bind="attr: { href : '#languagesDetails/'+languageID}, text: languageName"></a></div>
             </div>
         </div>
         <div id="alerta" class="hidden alert alert-danger col-md-12">Resultados não encontrados</div>

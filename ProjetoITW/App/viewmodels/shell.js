@@ -9,13 +9,13 @@
         activate: function () {
             router.map([
                 { route: '', moduleId: 'viewmodels/welcome', nav: false},
-                { route: 'movies', moduleId: 'viewmodels/movies', nav: true, menu: '<span>  <i class="fa fa-video-camera" style="font-size:20px"></i> Filmes</span>'},
-                { route: 'actors', moduleId: 'viewmodels/actors', nav: true, menu: '<span>  <i class="fa fa-users" style="font-size:20px"></i> Atores</span>'},
-                { route: 'directors', moduleId: 'viewmodels/directors', nav: true, menu: '<span>  <i class="fa fa-user-circle-o" style="font-size:20px"></i> Realizadores</span>' },
-                { route: 'genres', moduleId: 'viewmodels/genres', nav: true, menu: '<span>  <i class="fa fa-user" style="font-size:20px"></i> Géneros</span>' },
-                { route: 'languages', moduleId: 'viewmodels/languages', nav: true, menu: '<span>      <img src="images/linguagens.png" style="width:30px; height:20px; " /> Linguagens</span>' },                
-                { route: 'countries', moduleId: 'viewmodels/countries', nav: true, menu: '<span>  <i class="fa fa-globe" style="font-size:20px"></i> Países</span>' },
-                { route: 'contactos', moduleId: 'viewmodels/contactos',nav: true, menu: '<span><i class="fa fa-address-book-o" style="font-size:20px"></i></span>       Contactos   </span>'  },
+                { route: 'movies', moduleId: 'viewmodels/movies', nav: true, menu: '<span><img src="images/movies.png" style="width:30px; height:24px; " />Filmes</span>'},
+                { route: 'actors', moduleId: 'viewmodels/actors', nav: true, menu: '<span>  <img src="images/actor.png" style="width:30px; height:24px; "/> Atores</span>'},
+                { route: 'directors', moduleId: 'viewmodels/directors', nav: true, menu: '<span>  <img src="images/directors.png" style="width:30px; height:24px; "/> Realizadores</span>' },
+                { route: 'genres', moduleId: 'viewmodels/genres', nav: true, menu: '<span>  <img src="images/generos.png" style="width:30px; height:24px; "/>  Géneros</span>' },
+                { route: 'languages', moduleId: 'viewmodels/languages', nav: true, menu: '<span>      <img src="images/portugal.png" style="width:30px; height:24px; " /> Linguagens</span>' },                
+                { route: 'countries', moduleId: 'viewmodels/countries', nav: true, menu: '<span>  <img src="images/pais.png" style="width:30px; height:24px; "/> Países</span>' },
+                { route: 'contactos', moduleId: 'viewmodels/contactos',nav: true, menu: '<span><img src="images/contactos.png" style="width:30px; height:24px; "/>       Contactos   </span>'  },
                 { route: 'directorsDetails/:id',moduleId: 'viewmodels/directorsDetails', nav: false },
                 { route: 'moviesDetails/:id', moduleId: 'viewmodels/moviesDetails', nav: false},
                 { route: 'languagesDetails/:id', moduleId: 'viewmodels/languagesDetails', nav: false },
@@ -27,7 +27,10 @@
 
 
 
-            ]).buildNavigationModel();
+                ]).buildNavigationModel();
+            $('.navbar-collapse').click(function(){
+                $(".navbar-collapse").collapse('hide');
+            });
             
             return router.activate();
         }

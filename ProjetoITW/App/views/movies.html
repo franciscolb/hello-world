@@ -1,4 +1,4 @@
-﻿<style>
+﻿<style type="text/css">
     body {
         background-image: url(images/backgroundfilmes.jpg);
         color:#FFFFFF;
@@ -7,16 +7,13 @@
         background-size: cover;
 
     }
-    a {
-        color:#13E3E9 ;
+    .foo {
+        background-image: url(images/capitaoamerica.jpg);
     }
-    
 </style>
-<section>
+<section class="body">
     <div class="page-header container titulopagina">
-    <div>
-        <img src="http://wallpaper.ultradownloads.com.br/278955_Papel-de-Parede-Filme-Capitao-America_1920x1080.jpg" alt="asda" width="100%" height="100px"/>
-    </div>
+    <div class="imagem foo"></div>
         <h2>Filmes - <small data-bind="visible: (moviesCount() > 0)"><i class="fa fa-film"></i> [<span data-bind="text: moviesCount"></span>]</small></h2>
     </div>
     <div class="container">
@@ -24,7 +21,7 @@
             <div class="col-md-6 col-md-offset-2">
                 <div class="input-group">
                     <span class="input-group-addon" id="basic-addon1">Nome:</span>
-                    <input type="text" id="movieTitle" class="form-control" data-bind="value : searchText" aria-describedby="basic-addon1" placeholder="Introduza o nome do filme a pesquisar" />
+                    <input type="text" id="movieTitle" class="form-control" data-bind="value : searchText, valueUpdate: 'afterkeydown', event: {keyup: pesquisaautomatica}" aria-describedby="basic-addon1" placeholder="Introduza o nome do filme a pesquisar" />
                 </div>
             </div>
             <div class="col-md-2 col-xs-12 text-center">

@@ -61,7 +61,25 @@
             });
 
         };
-
+        pesquisaautomatica = function() {
+            console.log('pesquisa');
+            if (self.searchText().length >= 3){
+                ajaxHelper(searchGenresUri + self.searchText(), 'GET').done(function (data){
+                    self.genres(data);
+                    if (data.length==0) {
+                        $('#alerta').removeClass('hidden');
+                    }
+                else if (data!=0){
+                !$("#alerta").hasClass('hidden');
+                $("#alerta").addClass('hidden');
+                }
+                });
+            } else {
+                getAllGenres();
+                !$("#alerta").hasClass('hidden');
+                $("#alerta").addClass('hidden');
+            }
+        };
         
 
         //---- Chamada inicial

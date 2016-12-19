@@ -17,17 +17,34 @@
 	<div class="container">
 	<button type="button" class="btn btn-default" onClick="history.go(-1)"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
 	<div class="row">
-		<div data-bind="foreach: genresData" class="col-lg-5">
-			<table class="table table-bordered">
-				<tr>
-					<td><strong>Género: </strong></td>
-					<td><span data-bind="text: genreName"></span></td>
-				</tr>
-				<tr>
-					<td><strong>Filmes: </strong></td>
-					<td><div data-bind="foreach: movies"><a data-bind="text: movie_title, attr: {href: '#moviesDetails/'+movieID}"></a><br/></div></td>
-				</tr>
-			</table>
+		<div data-bind="foreach: genresData" class="col-lg-12">
+			<h2>Filmes</h2>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Nome do filme</th>
+							<th>Ano</th>
+							<th>IMDB score</th>
+							<th>IMDB link</th>
+						</tr>	
+					</thead>
+					<tbody data-bind="foreach: movies">
+						<tr>
+							<td>
+								<span data-bind="text: movieID"></span>. <a data-bind="text: movie_title, attr: {href: '#moviesDetails/'+movieID}"></a>
+							</td>
+							<td>
+								<span data-bind="text: title_year"></span>
+							</td>
+							<td>
+								<span data-bind="text: imdb_score"></span>/10
+							</td>
+							<td>
+								<a data-bind="text: movie_imdb_link, attr: {href: movie_imdb_link}"></a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
 		</div>
 	</div>
 	</div> 

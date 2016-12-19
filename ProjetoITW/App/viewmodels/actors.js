@@ -12,7 +12,6 @@
         self.actors = ko.observableArray();
         self.actorsCount = ko.observable(null);
         self.error = ko.observable();
-        self.actorInfo = ko.observableArray();
         self.searchTextGood = ko.computed(function () {
             return (self.searchText().length < 3)
         }, self);
@@ -52,7 +51,6 @@
             console.log('CALL: searchActors...')
             ajaxHelper(searchActorsUri + self.searchText(), 'GET').done(function (data) {
                 self.actors(data);
-                console.log(data.length);
                 if (data.length==0) {
 						$('#alerta').removeClass('hidden');
 					}
@@ -62,6 +60,25 @@
                 }
             });
         }
+        pesquisaautomatica = function() {
+            console.log('pesquisa');
+            if (self.searchText().length >= 3){
+                ajaxHelper(searchActorsUri + self.searchText(), 'GET').done(function (data){
+                    self.actors(data);
+                    if (data.length==0) {
+                        $('#alerta').removeClass('hidden');
+                    }
+                else if (data!=0){
+                !$("#alerta").hasClass('hidden');
+                $("#alerta").addClass('hidden');
+                }
+                });
+            } else {
+                getAllActors();
+                !$("#alerta").hasClass('hidden');
+                $("#alerta").addClass('hidden');
+            }
+        };
 		
         
         //---- Chamada inicial

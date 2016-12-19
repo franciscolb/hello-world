@@ -10,18 +10,21 @@
     a {
         color:#13E3E9 ;
     }
-    
+    .foo {
+        background-image: url(images/genres.jpg);
+    }
 </style>
 <section> 
     <div class="page-header container titulopagina">
-        <h2>Géneros - <small data-bind="visible: (genresCount() > 0)"><i class="fa fa-film"></i> [<span data-bind="text: genresCount"></span>]</small></h2>
+    <div class="imagem foo"></div>
+        <h2>Géneros  <small data-bind="visible: (genresCount() > 0)"> [<span data-bind="text: genresCount"></span>]</small></h2>
     </div>
     <div class="container" id="bodygenero">
         <div class="row">
             <div class="col-md-6 col-md-offset-2">
                 <div class="input-group">
                     <span class="input-group-addon" id="basic-addon1">Género:</span>
-                    <input type="text" id="genreTitle" class="form-control" data-bind="value : searchText" aria-describedby="basic-addon1" placeholder="Introduza o género" />
+                    <input type="text" id="genreTitle" class="form-control" data-bind="value : searchText, valueUpdate: 'afterkeydown', event: {keyup: pesquisaautomatica}" aria-describedby="basic-addon1" placeholder="Introduza o género" />
                 </div>
             </div>
             <div class="col-md-2">
@@ -32,7 +35,7 @@
         <hr />
         <div class="row" data-bind="foreach: genres">
             <div class="col-md-4 col-lg-offset-2">
-                <div><i class="fa fa-film"></i> <a data-bind="attr: { href : '#genresDetails/'+genreID}, text: genreName"></a></div>
+                <div><i class="fa fa-circle"></i> <a data-bind="attr: { href : '#genresDetails/'+genreID}, text: genreName"></a></div>
             </div>
         </div>
         <div id="alerta" class="hidden alert alert-danger col-md-12">Resultados não encontrados</div>

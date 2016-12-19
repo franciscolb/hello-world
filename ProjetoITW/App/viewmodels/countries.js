@@ -59,6 +59,25 @@
                 }
             });
         }
+        pesquisaautomatica = function() {
+            console.log('pesquisa');
+            if (self.searchText().length >= 3){
+                ajaxHelper(searchCountriesUri + self.searchText(), 'GET').done(function (data){
+                    self.countries(data);
+                    if (data.length==0) {
+                        $('#alerta').removeClass('hidden');
+                    }
+                else if (data!=0){
+                !$("#alerta").hasClass('hidden');
+                $("#alerta").addClass('hidden');
+                }
+                });
+            } else {
+                getAllCountries();
+                !$("#alerta").hasClass('hidden');
+                $("#alerta").addClass('hidden');
+            }
+        };
         //---- Chamada inicial
         getAllCountries();
     };
